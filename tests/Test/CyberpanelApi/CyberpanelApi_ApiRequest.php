@@ -7,14 +7,15 @@
  * @author CyanDark, Inc <support@cyandark.com>
  * @link http://www.cyandark.com/ CyanDark
  */
-
 use CyanDark\UnitTest\Reflection\CyberpanelApiTest as CyberpanelApiTest;
 
-class CyberpanelApi_ApiRequest extends CyberpanelApiTest {
+class CyberpanelApi_ApiRequest extends CyberpanelApiTest
+{
     /**
      * The test to run in web server environments.
      */
-    public function test() {
+    public function test()
+    {
         try {
             // Set the input of the function
             $this->setInput('verifyConn');
@@ -39,7 +40,8 @@ class CyberpanelApi_ApiRequest extends CyberpanelApiTest {
     /**
      * The test to run in CLI environments.
      */
-    public function testCli() {
+    public function testCli()
+    {
         return $this->test();
     }
 }

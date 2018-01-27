@@ -1,9 +1,9 @@
 <?php
     // Initialize the bootstraping operations
-    require_once __DIR__ . DIRECTORY_SEPARATOR . "bootstrap.php";
+    require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
 ?>
 
-<?php @require(__DIR__ . DIRECTORY_SEPARATOR . "includes" . DIRECTORY_SEPARATOR . "header.php"); ?>
+<?php @require __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php'; ?>
     <main role="main">
         <section class="jumbotron text-center">
             <div class="container">
@@ -19,7 +19,7 @@
             <?php
                 if (!empty($available_tests) && !isset($class_test)) {
                     foreach ($available_tests as $category => $classes) {
-            ?>
+                        ?>
                 <div class="card" style="margin-bottom: 10px;">
                     <div class="card-header">
                         <?php echo Language::lang('Global.index.header.category_tests', $category); ?>
@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <?php
                             foreach ($classes as $test) {
-                        ?>
+                                ?>
                             <div class="row" style="padding: 10px 0px;">
                                 <div class="col-md-8">
                                     <h4 class="card-title"><?php echo $test['name']; ?></h4>
@@ -37,8 +37,7 @@
                                 </div>
                             </div>
                         <?php
-                            }
-                        ?>
+                            } ?>
                     </div>
                 </div>
             <?php
@@ -47,4 +46,4 @@
             ?>
         </div>
     </main>
-<?php @require(__DIR__ . DIRECTORY_SEPARATOR . "includes" . DIRECTORY_SEPARATOR . "footer.php"); ?>
+<?php @require __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php'; ?>

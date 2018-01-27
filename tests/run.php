@@ -1,6 +1,6 @@
 <?php
     // Initialize the bootstraping operations
-    require_once __DIR__ . DIRECTORY_SEPARATOR . "bootstrap.php";
+    require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
     // Execute given test
     if (isset($_GET['test']) && class_exists($_GET['test'])) {
@@ -12,7 +12,7 @@
 
             // Get requested data
             $request = (array) $class_test->request;
-            
+
             // Get test data
             $status = $class_test->getStatus();
             $result = $class_test->getOutput();
@@ -30,7 +30,7 @@
     }
 ?>
 
-<?php @require(__DIR__ . DIRECTORY_SEPARATOR . "includes" . DIRECTORY_SEPARATOR . "header.php"); ?>
+<?php @require __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php'; ?>
     <main role="main">
         <section class="jumbotron text-center">
             <div class="container">
@@ -45,13 +45,13 @@
         <div class="container">
             <?php
                 if ($status) {
-            ?>
+                    ?>
                 <div class="text-success" style="padding-bottom: 20px;">
                     <h3><i class="fas fa-check-circle"></i> <?php echo Language::lang('Global.run.alert.success_test'); ?></h3>
                 </div>
             <?php
                 } else {
-            ?>
+                    ?>
                 <div class="text-danger" style="padding-bottom: 20px;">
                     <h3><i class="fas fa-times-circle"></i> <?php echo Language::lang('Global.run.alert.fail_test'); ?></h3>
                 </div>
@@ -61,7 +61,7 @@
 
             <?php 
                 if (!empty($request) && is_array($request)) {
-            ?>
+                    ?>
                 <div class="card" style="margin-bottom: 25px;">
                     <div class="card-header">
                         <?php echo Language::lang('Global.run.header.input_parameters', $_GET['test']); ?>
@@ -70,7 +70,7 @@
                         <form method="post">
                             <?php
                                 foreach ($request as $key => $value) {
-                            ?>
+                                    ?>
                                 <div class="input-group" style="margin-bottom: 10px;" id="param_<?php echo $key; ?>">
                                     <span class="input-group-addon"><?php echo $key; ?></span>
                                     <input type="text" class="form-control" name="<?php echo $key; ?>" value="<?php echo $value; ?>">
@@ -81,8 +81,7 @@
                                     </span>
                                 </div>
                             <?php
-                                }
-                            ?>
+                                } ?>
                             <small><?php echo Language::lang('Global.run.text.custom_call_notice'); ?></small>
 
                             <div class="float-right">
@@ -104,7 +103,7 @@
                         if (isset($instance)) {
                             $instance_name = @get_class($instance);
                             if (!empty($instance_name)) {
-                    ?>
+                                ?>
                         <h5><?php echo Language::lang('Global.run.header.class', $instance_name); ?></h5>
                         <pre><?php print_r($instance); ?></pre>
                         <hr>
@@ -126,4 +125,4 @@
             </div>
         </div>
     </main>
-<?php @require(__DIR__ . DIRECTORY_SEPARATOR . "includes" . DIRECTORY_SEPARATOR . "footer.php"); ?>
+<?php @require __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php'; ?>

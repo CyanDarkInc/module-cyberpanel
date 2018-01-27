@@ -1,6 +1,7 @@
 <?php
+
 // Initialize the bootstraping operations
-require_once __DIR__ . DIRECTORY_SEPARATOR . "bootstrap.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
 // Execute given test
 if (php_sapi_name() === 'cli') {
@@ -11,7 +12,7 @@ if (php_sapi_name() === 'cli') {
             try {
                 $class_test = new $test['class']();
                 $class_test->test();
-                
+
                 $status = $class_test->getStatus();
                 $result = $class_test->getOutput();
                 $input = $class_test->getInput();

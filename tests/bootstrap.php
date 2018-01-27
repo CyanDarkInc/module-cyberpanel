@@ -8,15 +8,14 @@
  * @author CyanDark, Inc <support@cyandark.com>
  * @link http://www.cyandark.com/ CyanDark
  */
-
 use CyanDark\UnitTest\Loader as Loader;
 use CyanDark\UnitTest\Language as Language;
 
 // Require the config file
-require_once __DIR__ . DIRECTORY_SEPARATOR . "config.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'config.php';
 
 // Load the Loader class
-require_once CORE_DIR . DIRECTORY_SEPARATOR . "Loader.php";
+require_once CORE_DIR . DIRECTORY_SEPARATOR . 'Loader.php';
 
 // Load all the necessary classes in an specific order
 Loader::loadClasses([CORE_DIR, CLASSES_DIR, REFLECTIONS_DIR, TESTS_DIR]);

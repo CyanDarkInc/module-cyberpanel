@@ -9,14 +9,15 @@
 
 namespace CyanDark\UnitTest;
 
-final class Loader {
+final class Loader
+{
     /**
      * Load all the classes inside of a folder.
-     * 
+     *
      * @param  mixed $dir The directory to scan, of an array or dirs.
      * @return array An array containing all the directory paths.
      */
-    static public function loadClasses($dir)
+    public static function loadClasses($dir)
     {
         if (is_array($dir)) {
             $files = [];
@@ -46,11 +47,11 @@ final class Loader {
 
     /**
      * Returns an array with all the classes inside of a folder.
-     * 
+     *
      * @param  mixed $dir The directory to scan, of an array or dirs.
      * @return array An array containing all the classes.
      */
-    static public function getClasses($dir)
+    public static function getClasses($dir)
     {
         if (is_array($dir)) {
             $files = [];
@@ -71,7 +72,7 @@ final class Loader {
             $extension = explode('.', $file_name);
             $extension = end($extension);
 
-            if ($extension ==! 'php' || !is_file($file) || substr($file_name, 0, 1) == '.') {
+            if ($extension == !'php' || !is_file($file) || substr($file_name, 0, 1) == '.') {
                 unset($files[$key]);
             }
         }
@@ -87,7 +88,7 @@ final class Loader {
      * @param  bool   $recursive True to scan de directory recursively.
      * @return array  An array containing the directory structure.
      */
-    static private function getDirectoryFiles($dir, $flat = true, $recursive = false)
+    private static function getDirectoryFiles($dir, $flat = true, $recursive = false)
     {
         if (is_dir($dir)) {
             $content = array_values(array_diff(scandir($dir), ['.', '..']));
@@ -131,7 +132,7 @@ final class Loader {
      * @param  bool  $multi_level Collapse all the levels of the matrix.
      * @return mixed The resultant array.
      */
-    static private function collapseArray($array, $multi_level = false)
+    private static function collapseArray($array, $multi_level = false)
     {
         $result = [];
 

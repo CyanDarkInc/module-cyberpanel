@@ -9,7 +9,8 @@
 
 namespace CyanDark\UnitTest;
 
-abstract class TestClass {
+abstract class TestClass
+{
     /**
      * @var array The configuration parameters required by the class to be tested.
      */
@@ -43,42 +44,46 @@ abstract class TestClass {
     /**
      * Execute initialization.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->instance = $this->initialization($this->config);
     }
 
     /**
      * Initializes the class that will be tested.
-     * 
+     *
      * @param  array $config An array containing the configuration parameters.
      * @return mixed An instance of the class that will be tested.
      */
-    public function initialization($config) {
-
+    public function initialization($config)
+    {
     }
 
     /**
      * Set the output of the test function.
-     * 
+     *
      * @param mized $result The result of the test funcion.
      */
-    public function setOutput($result = null) {
+    public function setOutput($result = null)
+    {
         $this->output = $result;
     }
 
     /**
      * Get the previous saved output of the test function.
-     * 
+     *
      * @return mixed The saved output.
      */
-    public function getOutput() {
+    public function getOutput()
+    {
         return $this->output;
     }
 
     /**
      * Set the input parameters of the test function.
      */
-    public function setInput() {
+    public function setInput()
+    {
         $this->input = func_get_args();
 
         if (empty($this->input)) {
@@ -88,31 +93,35 @@ abstract class TestClass {
 
     /**
      * Get the previous saved input parameters of the test function.
-     * 
+     *
      * @return mixed The saved parameters.
      */
-    public function getInput() {
+    public function getInput()
+    {
         return $this->input;
     }
 
     /**
      * Mark the test as successfully passed.
      */
-    public function passTest() {
+    public function passTest()
+    {
         $this->status = true;
     }
 
     /**
      * Mark the test as failed.
      */
-    public function failTest() {
+    public function failTest()
+    {
         $this->status = false;
     }
 
     /**
      * Get the status of the test.
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
@@ -122,7 +131,8 @@ abstract class TestClass {
      * @param string $name The name of the field.
      * @param string $value The default value of the field.
      */
-    public function request($name, $value) {        
+    public function request($name, $value)
+    {
         if (empty($this->request)) {
             $this->request = new \stdClass();
         }
@@ -137,137 +147,149 @@ abstract class TestClass {
     /**
      * Execute the test.
      */
-    public function test() {
-        
+    public function test()
+    {
     }
 
     /**
      * Execute the CLI test.
      */
-    public function testCli() {
-
+    public function testCli()
+    {
     }
 
     /**
      * Check if a given input is a string.
-     * 
+     *
      * @param  mixed   $result The input to validate.
-     * @return boolean True if is a string, false otherwise.
+     * @return bool True if is a string, false otherwise.
      */
-    public function isString(&$result) {
+    public function isString(&$result)
+    {
         return is_string($result);
     }
 
     /**
      * Check if a given input is a integer.
-     * 
+     *
      * @param  mixed   $result The input to validate.
-     * @return boolean True if is a integer, false otherwise.
+     * @return bool True if is a integer, false otherwise.
      */
-    public function isInteger(&$result) {
-        return is_integer($result);
+    public function isInteger(&$result)
+    {
+        return is_int($result);
     }
 
     /**
      * Check if a given input is a float.
-     * 
+     *
      * @param  mixed   $result The input to validate.
-     * @return boolean True if is a float, false otherwise.
+     * @return bool True if is a float, false otherwise.
      */
-    public function isFloat(&$result) {
+    public function isFloat(&$result)
+    {
         return is_float($result);
     }
 
     /**
      * Check if a given input is an array.
-     * 
+     *
      * @param  mixed   $result The input to validate.
-     * @return boolean True if is an array, false otherwise.
+     * @return bool True if is an array, false otherwise.
      */
-    public function isArray(&$result) {
+    public function isArray(&$result)
+    {
         return is_array($result);
     }
 
     /**
      * Check if a given input is boolean.
-     * 
+     *
      * @param  mixed   $result The input to validate.
-     * @return boolean True if is an array, false otherwise.
+     * @return bool True if is an array, false otherwise.
      */
-    public function isBool(&$result) {
+    public function isBool(&$result)
+    {
         return is_bool($result) || (int) $result == 0;
     }
 
     /**
      * Check if a given input is an object.
-     * 
+     *
      * @param  mixed   $result The input to validate
-     * @return boolean True if is an object, false otherwise
+     * @return bool True if is an object, false otherwise
      */
-    public function isObject(&$result) {
+    public function isObject(&$result)
+    {
         return is_object($result);
     }
 
     /**
      * Check if a given input is callable.
-     * 
+     *
      * @param  mixed   $result The input to validate.
-     * @return boolean True if is callable, false otherwise.
+     * @return bool True if is callable, false otherwise.
      */
-    public function isCallable(&$result) {
+    public function isCallable(&$result)
+    {
         return is_callable($result);
     }
 
     /**
      * Check if a given input is a equal to another.
-     * 
+     *
      * @param  mixed   $result   The input to validate.
      * @param  mixed   $expected The input to compare.
-     * @return boolean True if both input are equal, false otherwise.
+     * @return bool True if both input are equal, false otherwise.
      */
-    public function isExpected(&$result, &$expected) {
-        return ($result === $expected);
+    public function isExpected(&$result, &$expected)
+    {
+        return $result === $expected;
     }
 
     /**
      * Check if a given input is different to another.
-     * 
+     *
      * @param  mixed   $result   The input to validate.
      * @param  mixed   $expected The input to compare.
-     * @return boolean True if both input are different, false otherwise.
+     * @return bool True if both input are different, false otherwise.
      */
-    public function isDifferent(&$result, &$expected) {
-        return ($result ==! $expected);
+    public function isDifferent(&$result, &$expected)
+    {
+        return $result == !$expected;
     }
 
     /**
      * Check if a given input is empty.
-     * 
+     *
      * @param  mixed   $result The input to validate.
-     * @return boolean True if the input is empty, false otherwise.
+     * @return bool True if the input is empty, false otherwise.
      */
-    public function isEmpty(&$result) {
+    public function isEmpty(&$result)
+    {
         return empty($result);
     }
 
     /**
      * Check if a given input is not empty.
-     * 
+     *
      * @param  mixed   $result The input to validate.
-     * @return boolean True if the input is not empty, false otherwise.
+     * @return bool True if the input is not empty, false otherwise.
      */
-    public function isNotEmpty(&$result) {
+    public function isNotEmpty(&$result)
+    {
         return !empty($result);
     }
 
     /**
      * Check if a given input is an instance of another.
-     * 
+     *
      * @param  mixed   $instance The instance to validate.
      * @param  mixed   $expected The expected instance.
-     * @return boolean True if the instance is equal to the expected one, false otherwise.
+     * @return bool True if the instance is equal to the expected one, false otherwise.
      */
-    public function isInstanceOf(&$instance, $expected) {
-        return ($instance instanceof $expected);
+    public function isInstanceOf(&$instance, $expected)
+    {
+        return $instance instanceof $expected;
     }
 }
