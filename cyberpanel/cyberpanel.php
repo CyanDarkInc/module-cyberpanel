@@ -919,7 +919,7 @@ class Cyberpanel extends Module
 
             // Delete CyberPanel account
             $this->log($row->meta->host_name . '|deleteWebsite', serialize($service_fields->cyberpanel_domain), 'input', true);
-            $this->parseResponse($api->removeAccount($service_fields->cyberpanel_domain));
+            $this->parseResponse($api->deleteAccount($service_fields->cyberpanel_domain));
 
             // Update the number of accounts on the server
             $this->updateAccountCount($row, false);
