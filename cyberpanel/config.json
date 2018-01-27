@@ -1,0 +1,23 @@
+{
+    "version": "1.0.0",
+    "name": "Cyberpanel.name",
+    "description": "",
+    "authors": [
+        {
+            "name": "Phillips Data, Inc.",
+            "url": "http://www.blesta.com"
+        }
+    ],
+    "service": {
+        "name_key": "cyberpanel_domain"
+    },
+    "module": {
+        "row": "Cyberpanel.module_row",
+        "rows": "Cyberpanel.module_row_plural",
+        "group": "Cyberpanel.module_group",
+        "row_key": "server_name"
+    },
+    "package": {
+        "name_key": "cyberpanel_domain"
+    }
+}

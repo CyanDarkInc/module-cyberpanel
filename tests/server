@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Execute the script in the relative directory
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd "${DIR}"
+
+# Create test server
+clear
+
+unamestr=$(uname);
+if [[ "$unamestr" == 'Darwin' ]]; then
+   open http://localhost:8900/
+fi
+
+echo "Running Test Server..."
+php -S localhost:8900 -t "${DIR}"

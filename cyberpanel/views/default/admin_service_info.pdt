@@ -1,0 +1,36 @@
+    <table class="table">
+        <tr class="heading_row">
+            <td class="fixed_small center border_none"><i class="fa fa-level-up fa-rotate-90"></i></td>
+            <td class="border_left"><?php $this->_('Cyberpanel.service_info.username'); ?></td>
+            <td><?php $this->_('Cyberpanel.service_info.password'); ?></td>
+            <td><?php $this->_('Cyberpanel.service_info.server'); ?></td>
+            <td class="last"><?php $this->_('Cyberpanel.service_info.options'); ?></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><?php $this->Html->_($service_fields->cyberpanel_username); ?></td>
+            <td><?php $this->Html->_($service_fields->cyberpanel_password); ?></td>
+            <td><?php $this->Html->_($module_row->meta->host_name); ?></td>
+            <td>
+                <?php
+                    $this->Form->create($this->Html->safe('https://' . $this->Html->ifSet($module_row->meta->host_name) . ':8090/api/loginAPI'), ['target' => '_blank']);
+                    $this->Form->fieldHidden('username', $this->Html->ifSet($service_fields->cyberpanel_username));
+                    $this->Form->fieldHidden('password', $this->Html->ifSet($service_fields->cyberpanel_password));
+                    $this->Form->fieldHidden('commit', 'Login');
+                ?>
+                <a id="cyberpanel_login<?php $this->Html->_($service->id); ?>" href="#"><?php $this->_('Cyberpanel.service_info.option_login'); ?></a>
+                <?php
+                    $this->Form->end();
+                ?>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#cyberpanel_login<?php $this->Html->_($service->id); ?>').click(function(e) {
+                e.preventDefault();
+
+                $(this).closest('form').submit();
+            });
+        });
+    </script>
