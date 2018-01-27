@@ -144,7 +144,7 @@ class CyberpanelApi
 
     /**
      * Updates the password of an account.
-     * 
+     *
      * @param string $username The account username
      * @param string $new_password The new password for the account
      * @return stdClass An object containing the api response
@@ -156,7 +156,7 @@ class CyberpanelApi
 
     /**
      * Updates the package of an account.
-     * 
+     *
      * @param string $domain The main domain of the account
      * @param string $new_package The new package for the account
      * @return stdClass An object containing the api response

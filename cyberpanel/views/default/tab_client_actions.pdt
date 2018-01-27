@@ -1,6 +1,6 @@
 
     <div id="change_password">
-        <h4><?php $this->_('Cyberpanel.tab_client_actions.change_password');?></h4>
+        <h4><?php $this->_('Cyberpanel.tab_client_actions.change_password'); ?></h4>
 
         <?php
             $this->Form->create($this->base_uri . 'services/manage/' . $this->Html->ifSet($service_id) . '/tabClientActions/');
@@ -20,7 +20,7 @@
             </div>
         </div>
         <button class="btn btn-default pull-right">
-            <i class="fa fa-edit"></i> <?php $this->_('Cyberpanel.tab_client_actions.field_password_submit');?>
+            <i class="fa fa-edit"></i> <?php $this->_('Cyberpanel.tab_client_actions.field_password_submit'); ?>
         </button>
         <?php
             $this->Form->end();

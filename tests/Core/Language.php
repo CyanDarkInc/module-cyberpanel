@@ -9,18 +9,19 @@
 
 namespace CyanDark\UnitTest;
 
-class Language {
+class Language
+{
     /**
      * @var array The language definitions.
      */
-    static private $lang = [];
+    private static $lang = [];
 
     /**
      * Load an specific language file.
-     * 
+     *
      * @param string $lang_file The language file name.
      */
-    static public function loadLanguage($lang_file)
+    public static function loadLanguage($lang_file)
     {
         $lang = [];
 
@@ -36,10 +37,10 @@ class Language {
 
     /**
      * Get the current language of the user.
-     * 
+     *
      * @return string The ISO language code.
      */
-    static public function getUserLang()
+    public static function getUserLang()
     {
         $localization = str_replace('_', '-', strtolower($_SERVER['HTTP_ACCEPT_LANGUAGE']));
         $lang = explode('-', $localization, 2);
@@ -50,11 +51,11 @@ class Language {
 
     /**
      * Returns a language definition.
-     * 
+     *
      * @param  string $text_key The key of the language definition.
      * @return string The language definition.
      */
-    static public function lang($text_key)
+    public static function lang($text_key)
     {
         $args = func_get_args();
         $text = isset(self::$lang[$text_key]) ? self::$lang[$text_key] : $text_key;

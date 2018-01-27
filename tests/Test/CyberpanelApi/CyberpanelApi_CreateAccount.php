@@ -7,14 +7,15 @@
  * @author CyanDark, Inc <support@cyandark.com>
  * @link http://www.cyandark.com/ CyanDark
  */
-
 use CyanDark\UnitTest\Reflection\CyberpanelApiTest as CyberpanelApiTest;
 
-class CyberpanelApi_CreateAccount extends CyberpanelApiTest {
+class CyberpanelApi_CreateAccount extends CyberpanelApiTest
+{
     /**
      * The test to run in web server environments.
      */
-    public function test() {
+    public function test()
+    {
         try {
             // Set data for the test
             $username = 'user' . rand(0, 9999);
@@ -67,7 +68,8 @@ class CyberpanelApi_CreateAccount extends CyberpanelApiTest {
     /**
      * The test to run in CLI environments.
      */
-    public function testCli() {
+    public function testCli()
+    {
         return $this->test();
     }
 }

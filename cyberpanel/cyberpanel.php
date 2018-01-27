@@ -27,7 +27,7 @@ class Cyberpanel extends Module
 
     /**
      * Returns all tabs to display to a client when managing a service whose
-     * package uses this module
+     * package uses this module.
      *
      * @param stdClass $package A stdClass object representing the selected package
      * @return array An array of tabs in the format of method => title.
@@ -561,6 +561,7 @@ class Cyberpanel extends Module
     public function validateService($package, array $vars = null)
     {
         $this->Input->setRules($this->getServiceRules($vars));
+
         return $this->Input->validates($vars);
     }
 
@@ -574,11 +575,12 @@ class Cyberpanel extends Module
     public function validateServiceEdit($service, array $vars = null)
     {
         $this->Input->setRules($this->getServiceRules($vars, true));
+
         return $this->Input->validates($vars);
     }
 
     /**
-     * Returns the rule set for adding/editing a service
+     * Returns the rule set for adding/editing a service.
      *
      * @param array $vars A list of input vars
      * @param bool $edit True to get the edit rules, false for the add rules
@@ -1017,7 +1019,7 @@ class Cyberpanel extends Module
     }
 
     /**
-     * Client Actions (reset password)
+     * Client Actions (reset password).
      *
      * @param stdClass $package A stdClass object representing the current package
      * @param stdClass $service A stdClass object representing the current service
@@ -1297,7 +1299,7 @@ class Cyberpanel extends Module
         }
 
         // Only some API requests return status, so only use it if its available
-        if ($response->error_message ==! 'None') {
+        if ($response->error_message == !'None') {
             $this->Input->setErrors(['api' => ['result' => $response->error_message]]);
             $success = false;
         }
@@ -1332,7 +1334,7 @@ class Cyberpanel extends Module
     }
 
     /**
-     * Removes the www. from a domain name
+     * Removes the www. from a domain name.
      *
      * @param string $domain A domain name
      * @return string The domain name after the www. has been removed
